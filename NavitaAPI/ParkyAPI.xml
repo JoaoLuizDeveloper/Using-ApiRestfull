@@ -4,39 +4,39 @@
         <name>NavitaAPI</name>
     </assembly>
     <members>
-        <member name="M:ParkyAPI.Controllers.NationalParksController.GetNationalParks">
+        <member name="M:NativaAPI.Controllers.NationalParksController.GetNationalParks">
             <summary>
             Get List of National Parks
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ParkyAPI.Controllers.NationalParksController.GetNationalPark(System.Int32)">
+        <member name="M:NativaAPI.Controllers.NationalParksController.GetNationalPark(System.Int32)">
             <summary>
             Get Individual National Park
             </summary>
             <param name="id">The id of the National Park</param>
             <returns></returns>
         </member>
-        <member name="M:ParkyAPI.Controllers.NationalParksV2Controller.GetNationalParks">
+        <member name="M:NativaAPI.Controllers.NationalParksV2Controller.GetNationalParks">
             <summary>
             Get List of National Parks
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ParkyAPI.Controllers.TrailsController.GetTrails">
+        <member name="M:NativaAPI.Controllers.TrailsController.GetTrails">
             <summary>
             Get List of Trails
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ParkyAPI.Controllers.TrailsController.GetTrail(System.Int32)">
+        <member name="M:NativaAPI.Controllers.TrailsController.GetTrail(System.Int32)">
             <summary>
             Get Individual Trail
             </summary>
             <param name="id">The id of the Trail</param>
             <returns></returns>
         </member>
-        <member name="M:ParkyAPI.Controllers.TrailsController.GetTrailInNationalPark(System.Int32)">
+        <member name="M:NativaAPI.Controllers.TrailsController.GetTrailInNationalPark(System.Int32)">
             <summary>
             Get Individual Trail in national Park
             </summary>

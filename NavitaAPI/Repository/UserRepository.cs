@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using ParkyAPI.Data;
-using ParkyAPI.Models;
-using ParkyAPI.Repository.IRepository;
+using NativaAPI.Data;
+using NativaAPI.Models;
+using NativaAPI.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParkyAPI.Repository
+namespace NativaAPI.Repository
 {
     public class UserRepository : IUserRepository
     {

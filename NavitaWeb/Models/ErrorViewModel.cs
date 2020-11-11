@@ -1,6 +1,6 @@
 using System;
 
-namespace ParkyWeb.Models
+namespace NativaWeb.Models
 {
     public class ErrorViewModel
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace ParkyAPI
+namespace NativaAPI
 {
     public class WeatherForecast
     {

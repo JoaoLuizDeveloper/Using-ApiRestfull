@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ParkyWeb.Models;
-using ParkyWeb.Repository.IRepository;
+using NativaWeb.Models;
+using NativaWeb.Repository.IRepository;
 
-namespace ParkyWeb.Controllers
+namespace NativaWeb.Controllers
 {
     [Authorize]
     public class NationalParksController : Controller

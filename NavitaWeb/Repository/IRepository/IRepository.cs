@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyWeb.Repository.IRepository
+namespace NativaWeb.Repository.IRepository
 {
     public interface IRepository<T> where T : class 
     {

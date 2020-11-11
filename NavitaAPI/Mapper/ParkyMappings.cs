@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using ParkyAPI.Models;
-using ParkyAPI.Models.DTOs;
+using NativaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyAPI.Mapper
+namespace NativaAPI.Mapper
 {
     public class ParkyMappings: Profile
     {

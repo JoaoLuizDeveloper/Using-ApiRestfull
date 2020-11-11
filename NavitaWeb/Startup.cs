@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ParkyWeb.Repository;
-using ParkyWeb.Repository.IRepository;
+using NativaWeb.Repository;
+using NativaWeb.Repository.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace ParkyWeb
+namespace NativaWeb
 {
     public class Startup
     {

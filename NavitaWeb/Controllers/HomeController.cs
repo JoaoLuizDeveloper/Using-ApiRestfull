@@ -9,12 +9,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ParkyWeb.Models;
-using ParkyWeb.Models.ViewModel;
-using ParkyWeb.Repository.IRepository;
-using Microsoft.AspNetCore.Http;
+using NativaWeb.Models;
+using NativaWeb.Models.ViewModel;
+using NativaWeb.Repository.IRepository;
 
-namespace ParkyWeb.Controllers
+namespace NativaWeb.Controllers
 {
     public class HomeController : Controller
     {

@@ -4,19 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyAPI.Models
+namespace NativaAPI.Models
 {
-    public class NationalPark
+    public class Marca
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
-        [Required]
-        public string State { get; set; }
-
+        public string Nome { get; set; }
         public DateTime Created { get; set; }
-        public byte[] Picture { get; set; }
-        public DateTime Established { get; set; }
     }
 }

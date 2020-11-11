@@ -11,13 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ParkyAPI.Data;
-using ParkyAPI.Repository;
-using ParkyAPI.Repository.IRepository;
+using NativaAPI.Data;
+using NativaAPI.Repository;
+using NativaAPI.Repository.IRepository;
 using AutoMapper;
-using ParkyAPI.Mapper;
-using System.Reflection;
-using System.IO;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.Options;
@@ -26,7 +23,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace ParkyAPI
+namespace NativaAPI
 {
     public class Startup
     {
@@ -43,11 +40,11 @@ namespace ParkyAPI
             services.AddCors();
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<INationalParkRepository, NationalParkRepository>();
-            services.AddScoped<ITrailRepository, TrailRepository>();
+            services.AddScoped<IMarcaRepository, MarcaRepository>();
+            services.AddScoped<IPatrimonioRepository, PatrimonioRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddControllers();
-            services.AddAutoMapper(typeof(ParkyMappings));
+            //services.AddAutoMapper(typeof(ParkyMappings));
             services.AddApiVersioning(options =>
             {
                 options.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
@@ -85,7 +82,7 @@ namespace ParkyAPI
             //    options.SwaggerDoc("ParkyOpenApiSpec",
             //        new Microsoft.OpenApi.Models.OpenApiInfo()
             //        {
-            //            Title = "ParkyAPI",
+            //            Title = "NativaAPI",
             //            Version = "1",
             //            Description = "Building Api Project",
             //            Contact = new Microsoft.OpenApi.Models.OpenApiContact()
@@ -104,7 +101,7 @@ namespace ParkyAPI
             //    options.SwaggerDoc("ParkyOpenApiSpecTrails",
             //        new Microsoft.OpenApi.Models.OpenApiInfo()
             //        {
-            //            Title = "ParkyAPI (Trail)",
+            //            Title = "NativaAPI (Trail)",
             //            Version = "1",
             //            Description = "Building Api Project Trail",
             //            Contact = new Microsoft.OpenApi.Models.OpenApiContact()

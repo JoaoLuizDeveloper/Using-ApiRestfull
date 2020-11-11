@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ParkyAPI.Models;
+using NativaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyAPI.Data
+namespace NativaAPI.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -14,8 +14,8 @@ namespace ParkyAPI.Data
 
         }
 
-        public DbSet<NationalPark> NationalParks { get; set; }
-        public DbSet<Trail> Trails { get; set; }
+        public DbSet<Patrimonio> Patrimonios { get; set; }
+        public DbSet<Marca> Marcas { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NavitaAPI</name>
+    </assembly>
+    <members>
+        <member name="M:NativaAPI.Controllers.MarcasController.GetMarcas">
+            <summary>
+            Get List of Marcas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativaAPI.Controllers.MarcasController.GetMarca(System.Int32)">
+            <summary>
+            Get Individual Marcas
+            </summary>
+            <param name="id">The id of the Marcas</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativaAPI.Controllers.MarcasV2Controller.GetNationalParks">
+            <summary>
+            Get List of Marcas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativaAPI.Controllers.PatrimoniosController.GetPatrimonios">
+            <summary>
+            Get List of Patrimonios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativaAPI.Controllers.PatrimoniosController.GetPatrimonio(System.Int32)">
+            <summary>
+            Get Individual Patrimonio
+            </summary>
+            <param name="id">The id of the Patrimonio</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativaAPI.Controllers.PatrimoniosController.GetPatrimonioInMarcas(System.Int32)">
+            <summary>
+            Get Individual Patrimonio
+            </summary>
+            <param name="patrimonioid">The id of the PatrimonioId</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -4,15 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ParkyWeb.Models;
-using ParkyWeb.Models.ViewModel;
-using ParkyWeb.Repository;
-using ParkyWeb.Repository.IRepository;
+using NativaWeb.Models;
+using NativaWeb.Models.ViewModel;
+using NativaWeb.Repository;
+using NativaWeb.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
-namespace ParkyWeb.Controllers
+namespace NativaWeb.Controllers
 {
     [Authorize]
     public class TrailsController : Controller

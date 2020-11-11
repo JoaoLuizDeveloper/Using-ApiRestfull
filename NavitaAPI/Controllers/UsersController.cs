@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ParkyAPI.Models;
-using ParkyAPI.Repository.IRepository;
+using NativaAPI.Models;
+using NativaAPI.Repository.IRepository;
 
-namespace ParkyAPI.Controllers
+namespace NativaAPI.Controllers
 {
     [Authorize] 
     [Route("api/v{version:apiversion}/Users")]

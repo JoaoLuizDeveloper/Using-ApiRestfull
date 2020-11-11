@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using ParkyWeb.Repository.IRepository;
+using NativaWeb.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParkyWeb.Repository
+namespace NativaWeb.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {

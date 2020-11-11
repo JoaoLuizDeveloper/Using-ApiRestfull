@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyWeb.Models.ViewModel
+namespace NativaWeb.Models.ViewModel
 {
     public class TrailsVM
     {

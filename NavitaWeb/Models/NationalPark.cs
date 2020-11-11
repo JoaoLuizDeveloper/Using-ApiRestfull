@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyWeb.Models
+namespace NativaWeb.Models
 {
     public class NationalPark
     {

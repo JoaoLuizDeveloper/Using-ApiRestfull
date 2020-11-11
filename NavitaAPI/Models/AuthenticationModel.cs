@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParkyAPI.Models
+namespace NativaAPI.Models
 {
     public class AuthenticationModel
     {
