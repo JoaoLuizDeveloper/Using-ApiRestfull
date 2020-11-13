@@ -12,9 +12,11 @@ namespace NavitaAPI.Controllers
 {
     [Route("api/v{version:apiversion}/patrimonios")]
     [ApiController]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class PatrimoniosController : ControllerBase
     {
+        #region Construtor/Injection
         private readonly IPatrimonioRepository _patrepo;
         private readonly IMapper _mapper;
 
@@ -23,6 +25,7 @@ namespace NavitaAPI.Controllers
             _patrepo = patrepo;
             _mapper = mapper;
         }
+        #endregion
 
         #region Pegar Lista de Patrimonios
         /// <summary>
@@ -55,7 +58,6 @@ namespace NavitaAPI.Controllers
         [ProducesResponseType(200, Type = typeof(Patrimonio))]
         [ProducesResponseType(404)]
         [ProducesDefaultResponseType]
-        [Authorize(Roles = "Admin")]
         public IActionResult GetPatrimonio(int id)
         {
             var obj = _patrepo.GetPatrimonio(id);

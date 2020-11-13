@@ -11,9 +11,11 @@ namespace NavitaAPI.Controllers
     [Route("api/v{version:apiversion}/marcas")]
     [ApiVersion("1.0")]
     [ApiController]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class MarcasController : ControllerBase
     {
+        #region Construtor/Injection
         private readonly IMarcaRepository _npmarcas;
         private readonly IMapper _mapper;
 
@@ -22,6 +24,7 @@ namespace NavitaAPI.Controllers
             _npmarcas = npmarcas;
             _mapper = mapper;
         }
+        #endregion
 
         #region Pegar Lista de Marcas
         /// <summary>
@@ -53,7 +56,6 @@ namespace NavitaAPI.Controllers
         [HttpGet("{id:int}", Name = "GetMarca")]
         [ProducesResponseType(200, Type = typeof(Marca))]
         [ProducesResponseType(404)]
-        [Authorize]
         [ProducesDefaultResponseType]
         public IActionResult GetMarca(int id)
         {

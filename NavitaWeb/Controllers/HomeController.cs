@@ -17,6 +17,7 @@ namespace NavitaWeb.Controllers
 {
     public class HomeController : Controller
     {
+        #region Construtor/Injection
         private readonly ILogger<HomeController> _logger;
         private readonly IMarcaRepository _npRepo;
         private readonly IAccountRepository _AccountRepo;
@@ -29,7 +30,9 @@ namespace NavitaWeb.Controllers
             _npTrail = npTrail;
             _AccountRepo = accountRepository;
         }
+        #endregion
 
+        #region Index
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -40,18 +43,9 @@ namespace NavitaWeb.Controllers
             };
             return View(model);
         }
+        #endregion
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
+        #region Login
         [HttpGet]
         public IActionResult Login()
         {
@@ -81,7 +75,9 @@ namespace NavitaWeb.Controllers
 
             return RedirectToAction("Index");
         }
+        #endregion
 
+        #region Registro
         [HttpGet]
         public IActionResult Register()
         {
@@ -102,7 +98,9 @@ namespace NavitaWeb.Controllers
             //+ objUser.UserName
             return RedirectToAction("Login");
         }
+        #endregion
 
+        #region LogOut, Acesso Negado e Erro
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync();
@@ -116,5 +114,12 @@ namespace NavitaWeb.Controllers
         {
             return View();
         }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        #endregion
     }
 }

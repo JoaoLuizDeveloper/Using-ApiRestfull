@@ -17,6 +17,7 @@ namespace NavitaWeb.Controllers
     [Authorize]
     public class PatrimoniosController : Controller
     {
+        #region Construtor/Injection
         private readonly IMarcaRepository _npRepo;
         private readonly IPatrimonioRepository _npPatrimonio;
 
@@ -25,12 +26,22 @@ namespace NavitaWeb.Controllers
             _npRepo = npRepo;
             _npPatrimonio = npPatrimonio;
         }
+        #endregion
 
+        #region Listagem
         public IActionResult Index()
         {
             return View( new Patrimonio() { });
         }
-        [Authorize(Roles = "Admin")]
+
+        public async Task<IActionResult> GetAllPatrimonios()
+        {
+            var model = await _npPatrimonio.GetAllAsync(SD.PatrimonioAPIPath, HttpContext.Session.GetString("JWToken"));
+            return Json(new { data = model });
+        }
+        #endregion
+
+        #region Add e update
         public async Task<IActionResult> Upsert(int? id)
         {
             IEnumerable<Marca> npList = await _npRepo.GetAllAsync(SD.MarcaAPIPath, HttpContext.Session.GetString("JWToken"));
@@ -58,6 +69,7 @@ namespace NavitaWeb.Controllers
             }
             return View(objVM);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Upsert(PatrimoniosVM obj)
@@ -93,15 +105,9 @@ namespace NavitaWeb.Controllers
                 return View(objVM);
             }
         }
+        #endregion
 
-        public async Task<IActionResult> GetAllPatrimonios()
-        {
-            //WorkFlow
-
-            var model = await _npPatrimonio.GetAllAsync(SD.PatrimonioAPIPath, HttpContext.Session.GetString("JWToken"));
-            return Json(new { data = model});
-        }
-        
+        #region Deletar
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
@@ -113,5 +119,6 @@ namespace NavitaWeb.Controllers
             }
             return Json(new { success = false, message = "Falha ao deletar!" });
         }
+        #endregion
     }
 }

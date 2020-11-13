@@ -14,18 +14,31 @@ namespace NavitaWeb.Controllers
     [Authorize]
     public class MarcasController : Controller
     {
+        #region Construtor/Injection
         private readonly IMarcaRepository _npRepo;
 
         public MarcasController(IMarcaRepository npRepo)
         {
             _npRepo = npRepo;
         }
+        #endregion
 
+        #region Listagem
         public IActionResult Index()
         {
             return View( new Marca() { });
         }
-        
+
+        public async Task<IActionResult> GetAllMarcas()
+        {
+            //WorkFlow
+
+            var model = await _npRepo.GetAllAsync(SD.MarcaAPIPath, HttpContext.Session.GetString("JWToken"));
+            return Json(new { data = model });
+        }
+        #endregion
+
+        #region ADD e update
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Upsert(int? id)
         {
@@ -88,15 +101,9 @@ namespace NavitaWeb.Controllers
                 return View(obj);
             }
         }
+        #endregion
 
-        public async Task<IActionResult> GetAllMarcas()
-        {
-            //WorkFlow
-
-            var model = await _npRepo.GetAllAsync(SD.MarcaAPIPath, HttpContext.Session.GetString("JWToken"));
-            return Json(new { data = model});
-        }
-        
+        #region Deletar
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
@@ -108,5 +115,6 @@ namespace NavitaWeb.Controllers
             }
             return Json(new { success = false, message = "Delete not Successfull" });
         }
+        #endregion
     }
 }

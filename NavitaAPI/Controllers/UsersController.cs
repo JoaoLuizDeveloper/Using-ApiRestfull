@@ -16,13 +16,16 @@ namespace NavitaAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        #region Construtor/Injection
         private readonly IUserRepository _userRepo;
 
         public UsersController(IUserRepository userRepo)
         {
             _userRepo = userRepo;
         }
+        #endregion
 
+        #region Login
         [AllowAnonymous]
         [HttpPost("Authenticate")]
         public IActionResult Authenticate ([FromBody] AuthenticationModel model)
@@ -31,12 +34,14 @@ namespace NavitaAPI.Controllers
 
             if(user == null)
             {
-                return BadRequest(new { message = "O Email ou senha esta incorreto" });
+                return BadRequest(new { message = "Algo esta incorreto! Tente novamente." });
             }
 
             return Ok(user);
         }
+        #endregion
 
+        #region Registro
         [AllowAnonymous]
         [HttpPost("register")]
         public IActionResult Register([FromBody] AuthenticationModel model)
@@ -57,5 +62,6 @@ namespace NavitaAPI.Controllers
 
             return Ok(user);
         }
+        #endregion
     }
 }
