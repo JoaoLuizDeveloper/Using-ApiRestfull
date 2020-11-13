@@ -9,20 +9,20 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NativaWeb.Models;
-using NativaWeb.Models.ViewModel;
-using NativaWeb.Repository.IRepository;
+using NavitaWeb.Models;
+using NavitaWeb.Models.ViewModel;
+using NavitaWeb.Repository.IRepository;
 
-namespace NativaWeb.Controllers
+namespace NavitaWeb.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly INationalParkRepository _npRepo;
+        private readonly IMarcaRepository _npRepo;
         private readonly IAccountRepository _AccountRepo;
-        private readonly ITrailRepository _npTrail;
+        private readonly IPatrimonioRepository _npTrail;
 
-        public HomeController(ILogger<HomeController> logger, INationalParkRepository npRepo, ITrailRepository npTrail, IAccountRepository accountRepository)
+        public HomeController(ILogger<HomeController> logger, IMarcaRepository npRepo, IPatrimonioRepository npTrail, IAccountRepository accountRepository)
         {
             _logger = logger;
             _npRepo = npRepo;
@@ -33,12 +33,12 @@ namespace NativaWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IndexVM listOfParkAndTrails = new IndexVM()
+            IndexVM model = new IndexVM()
             {
-                NationalParkList = await _npRepo.GetAllAsync(SD.NationalParkAPIPath, HttpContext.Session.GetString("JWToken")),
-                TrailList = await _npTrail.GetAllAsync(SD.TrailAPIPath, HttpContext.Session.GetString("JWToken"))
+                MarcaList = await _npRepo.GetAllAsync(SD.MarcaAPIPath, HttpContext.Session.GetString("JWToken")),
+                PatrimonioList = await _npTrail.GetAllAsync(SD.PatrimonioAPIPath, HttpContext.Session.GetString("JWToken"))
             };
-            return View(listOfParkAndTrails);
+            return View(model);
         }
 
         public IActionResult Privacy()

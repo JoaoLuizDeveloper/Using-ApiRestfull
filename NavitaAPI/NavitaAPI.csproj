@@ -5,20 +5,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>NativaAPI.xml</DocumentationFile>
+    <DocumentationFile>NavitaAPI.xml</DocumentationFile>
     <NoWarn>1701;1702;1591;</NoWarn>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Mapper\**" />
-    <Compile Remove="Models\DTOs\**" />
-    <Content Remove="Mapper\**" />
-    <Content Remove="Models\DTOs\**" />
-    <EmbeddedResource Remove="Mapper\**" />
-    <EmbeddedResource Remove="Models\DTOs\**" />
-    <None Remove="Mapper\**" />
-    <None Remove="Models\DTOs\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />

@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using NativaWeb.Repository.IRepository;
+using NavitaWeb.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NativaWeb.Repository
+namespace NavitaWeb.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {

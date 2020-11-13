@@ -7,13 +7,13 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
         "ajax": {
-            "url": "/nationalParks/GetAllNationalPark",
+            "url": "/Patrimonios/GetAllPatrimonios",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
             {
-                "data": "name", "width": "50%",
+                "data": "marca.nome", "width": "25%",
                 "render": function (data) {
                     return `
                     <div>
@@ -25,7 +25,7 @@ function loadDataTable() {
                 }
             },
             {
-                "data": "state", "width": "20%",
+                "data": "nome", "width": "20%",
                 "render": function (data) {
                     return `
                     <div>
@@ -35,16 +35,39 @@ function loadDataTable() {
                     </div>
                     `;
                 }
-
+            },
+            {
+                "data": "numeroTombo", "width": "15%",
+                "render": function (data) {
+                    return `
+                    <div>
+                        <div class='text-black' style="color:black;>">
+                            ${data}
+                        </div>
+                    </div>
+                    `;
+                }
+            },
+            {
+                "data": "descricao", "width": "15%",
+                "render": function (data) {
+                    return `
+                    <div>
+                        <div class='text-black' style="color:black;>">
+                            ${data}
+                        </div>
+                    </div>
+                    `;
+                }
             },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/nationalParks/Upsert/${data}" class='btn btn-success text-black'
+                                <a href="/Patrimonios/Upsert/${data}" class='btn btn-success text-white'
                                     style='cursor:pointer;'> <i class='far fa-edit'></i></a>
                                     &nbsp;
-                                <a onclick=Delete("/nationalParks/Delete/${data}") class='btn btn-danger text-black'
+                                <a onclick=Delete("/Patrimonios/Delete/${data}") class='btn btn-danger text-white'
                                     style='cursor:pointer;'> <i class='far fa-trash-alt'></i></a>
                                 </div>
                             `;
@@ -57,12 +80,12 @@ function loadDataTable() {
 
 function Delete(url) {
     swal({
-        title: "Are you sure you want to Delete?",
-        text: "You will not be able to restore the data!",
+        title: "Tens certeza que deseja deletar?",
+        text: "Não seras capaz de restaurar isto!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmbuttonText: "Yes, delete!",
+        confirmbuttonText: "Sim, deletar!",
         closeOnconfirm: true
     }, function () {
         $.ajax({
@@ -80,28 +103,3 @@ function Delete(url) {
         });
     });
 }
-//function Delete(url) {
-//    swal({
-//        title: "Are you sure you want to Delete?",
-//        text: "You will not be able to restore the data!",
-//        icon: "warning",
-//        buttons: true,
-//        dangerMode: true
-//    }).then((willDelete) => {
-//        if (willDelete) {
-//            $.ajax({
-//                type: 'DELETE',
-//                url: url,
-//                success: function (data) {
-//                    if (data.success) {
-//                        toastr.success(data.message);
-//                        dataTable.ajax.reload();
-//                    }
-//                    else {
-//                        toastr.error(data.message);
-//                    }
-//                }
-//            });
-//        }
-//    });
-//}

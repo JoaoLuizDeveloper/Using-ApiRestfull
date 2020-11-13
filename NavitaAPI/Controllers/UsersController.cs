@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NativaAPI.Models;
-using NativaAPI.Repository.IRepository;
+using NavitaAPI.Models;
+using NavitaAPI.Repository.IRepository;
 
-namespace NativaAPI.Controllers
+namespace NavitaAPI.Controllers
 {
     [Authorize] 
     [Route("api/v{version:apiversion}/Users")]
@@ -27,7 +27,7 @@ namespace NativaAPI.Controllers
         [HttpPost("Authenticate")]
         public IActionResult Authenticate ([FromBody] AuthenticationModel model)
         {
-            var user = _userRepo.Authenticate(model.UserName, model.Password);
+            var user = _userRepo.Authenticate(model.UserName, model.Email, model.Password);
 
             if(user == null)
             {
@@ -48,7 +48,7 @@ namespace NativaAPI.Controllers
                 return BadRequest(new { message = "UserName already exist" });
             }
 
-            var user = _userRepo.Register(model.UserName, model.Password);
+            var user = _userRepo.Register(model.UserName, model.Email, model.Password);
 
             if(user == null)
             {

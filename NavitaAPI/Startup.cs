@@ -11,9 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NativaAPI.Data;
-using NativaAPI.Repository;
-using NativaAPI.Repository.IRepository;
+using NavitaAPI.Data;
+using NavitaAPI.Repository;
+using NavitaAPI.Repository.IRepository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -22,8 +22,11 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Reflection;
+using System.IO;
+using NavitaAPI.Mapper;
 
-namespace NativaAPI
+namespace NavitaAPI
 {
     public class Startup
     {
@@ -44,7 +47,7 @@ namespace NativaAPI
             services.AddScoped<IPatrimonioRepository, PatrimonioRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddControllers();
-            //services.AddAutoMapper(typeof(ParkyMappings));
+            services.AddAutoMapper(typeof(NavitaMappings));
             services.AddApiVersioning(options =>
             {
                 options.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
@@ -55,6 +58,7 @@ namespace NativaAPI
             services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
+            
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
@@ -79,10 +83,10 @@ namespace NativaAPI
 
             //services.AddSwaggerGen(options =>
             //{
-            //    options.SwaggerDoc("ParkyOpenApiSpec",
+            //    options.SwaggerDoc("NavitaOpenApiSpec",
             //        new Microsoft.OpenApi.Models.OpenApiInfo()
             //        {
-            //            Title = "NativaAPI",
+            //            Title = "NavitaAPI",
             //            Version = "1",
             //            Description = "Building Api Project",
             //            Contact = new Microsoft.OpenApi.Models.OpenApiContact()
@@ -98,10 +102,10 @@ namespace NativaAPI
             //            }
             //        });
 
-            //    options.SwaggerDoc("ParkyOpenApiSpecTrails",
+            //    options.SwaggerDoc("NavitaOpenApiSpecTrails",
             //        new Microsoft.OpenApi.Models.OpenApiInfo()
             //        {
-            //            Title = "NativaAPI (Trail)",
+            //            Title = "NavitaAPI (Trail)",
             //            Version = "1",
             //            Description = "Building Api Project Trail",
             //            Contact = new Microsoft.OpenApi.Models.OpenApiContact()
@@ -142,8 +146,8 @@ namespace NativaAPI
             });
             //app.UseSwaggerUI(options =>
             //{
-            //    options.SwaggerEndpoint("/swagger/ParkyOpenApiSpec/swagger.json", "Parky API");
-            //    //options.SwaggerEndpoint("/swagger/ParkyOpenApiSpecTrails/swagger.json", "Parky API Trails");
+            //    options.SwaggerEndpoint("/swagger/NavitaOpenApiSpec/swagger.json", "Navita API");
+            //    //options.SwaggerEndpoint("/swagger/NavitaOpenApiSpecTrails/swagger.json", "Navita API Trails");
             //    options.RoutePrefix = "";
             //});
             app.UseRouting();

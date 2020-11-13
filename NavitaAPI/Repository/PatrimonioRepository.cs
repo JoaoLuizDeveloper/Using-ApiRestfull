@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NativaAPI.Data;
-using NativaAPI.Models;
-using NativaAPI.Repository.IRepository;
+using NavitaAPI.Data;
+using NavitaAPI.Models;
+using NavitaAPI.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaAPI.Repository
+namespace NavitaAPI.Repository
 {
     public class PatrimonioRepository : IPatrimonioRepository
     {
@@ -28,9 +28,9 @@ namespace NativaAPI.Repository
             return Save();
         }
 
-        public Patrimonio GetPatrimonio(int trailId)
+        public Patrimonio GetPatrimonio(int patrimonioId)
         {
-            return _db.Patrimonios.Include(c => c.Marca).FirstOrDefault(n => n.Id == trailId);
+            return _db.Patrimonios.Include(c => c.Marca).FirstOrDefault(n => n.Id == patrimonioId);
         }
 
         public ICollection<Patrimonio> GetPatrimonios()

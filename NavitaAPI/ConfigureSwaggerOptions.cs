@@ -10,7 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace NativaAPI
+namespace NavitaAPI
 {
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
@@ -25,10 +25,9 @@ namespace NativaAPI
                 options.SwaggerDoc(
                     desc.GroupName, new Microsoft.OpenApi.Models.OpenApiInfo()
                     {
-                        Title = $"Parky Api {desc.ApiVersion}",
+                        Title = $"Navita Api {desc.ApiVersion}",
                         Version = desc.ApiVersion.ToString(),
                     });
-                
             }
 
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

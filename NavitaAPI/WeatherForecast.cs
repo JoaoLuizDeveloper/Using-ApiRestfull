@@ -1,6 +1,6 @@
 using System;
 
-namespace NativaAPI
+namespace NavitaAPI
 {
     public class WeatherForecast
     {

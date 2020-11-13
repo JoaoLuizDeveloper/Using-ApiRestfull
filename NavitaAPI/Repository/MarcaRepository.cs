@@ -1,12 +1,12 @@
-﻿using NativaAPI.Data;
-using NativaAPI.Models;
-using NativaAPI.Repository.IRepository;
+﻿using NavitaAPI.Data;
+using NavitaAPI.Models;
+using NavitaAPI.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaAPI.Repository
+namespace NavitaAPI.Repository
 {
     public class MarcaRepository : IMarcaRepository
     {
@@ -27,9 +27,9 @@ namespace NativaAPI.Repository
             return Save();
         }
 
-        public Marca GetMarca(int nationalParkId)
+        public Marca GetMarca(int marcaId)
         {
-            return _db.Marcas.FirstOrDefault(n => n.Id == nationalParkId);
+            return _db.Marcas.FirstOrDefault(n => n.Id == marcaId);
         }
 
         public ICollection<Marca> GetMarcas()

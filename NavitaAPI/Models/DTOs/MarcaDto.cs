@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NavitaAPI.Models
+namespace NavitaAPI.Models.DTOs
 {
-    public class Marca
+    public class MarcaDto
     {
         [Key]
         public int Id { get; set; }

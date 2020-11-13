@@ -1,20 +1,16 @@
-﻿@model NativaWeb.Models.ViewModel.IndexVM
-
+﻿@model NavitaWeb.Models.ViewModel.IndexVM
 
 <div class="container">
     <div class="row pb-4 backgroundWhite">
-        @if (Model != null && Model.NationalParkList.Count() > 0)
+        @if (Model != null && Model.MarcaList != null && Model.MarcaList.Count() > 0)
         {
-            foreach (var Np in Model.NationalParkList)
+            foreach (var Np in Model.MarcaList)
             {
                 <div class="container backgroundWhite pb-4">
                     <div class="card border">
                         <div class="card-header bg-dark text-light ml-0 row container">
                             <div class="col-12 col-md-6">
-                                <h1 class="text-warning">@Np.Name </h1>
-                            </div>
-                            <div class="col-12 col-md-6 text-md-right">
-                                <h1 class="text-warning">State : @Np.State</h1>
+                                <h1 class="text-warning">@Np.Nome </h1>
                             </div>
                         </div>
                         <div class="card-body">
@@ -23,10 +19,10 @@
                                     <div class="col-12 col-lg-8">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h3 style="color:#bbb9b9">Established: @Np.Established.Year </h3>
+                                                <h3 style="color:#bbb9b9">Data Cadastrado: @Np.Created</h3>
                                             </div>
                                             <div class="col-12">
-                                                @if (Model.TrailList.Where(u => u.NationalParkId == Np.Id).Count() > 0)
+                                                @if (Model.PatrimonioList.Where(u => u.MarcaId == Np.Id).Count() > 0)
                                                 {
                                                     <table class="table table-striped" style="border:1px solid #808080 ">
                                                         <tr class="table-secondary">
@@ -37,32 +33,30 @@
                                                             <th>Elevation Gain</th>
                                                             <th>Difficulty</th>
                                                         </tr>
-                                                        @foreach (var trails in Model.TrailList.Where(u => u.NationalParkId == Np.Id))
+                                                        @foreach (var patrimonio in Model.PatrimonioList.Where(u => u.MarcaId == Np.Id))
                                                         {
-                                                        <tr>
-                                                            <td>@trails.Name</td>
-                                                            <td>@trails.Distance miles</td>
-                                                            <td>@trails.Elevation ft</td>
-                                                            <td>@trails.Difficulty</td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td>@patrimonio.Nome</td>
+                                                                <td>@patrimonio.NumeroTombo</td>
+                                                            </tr>
                                                         }
                                                     </table>                                                    
                                                 }
                                                 else
                                                 {
-                                                    <p>No trails Exist...</p>
+                                                    <p>Sem patrimonio Existente...</p>
                                                 }
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-4 text-center">
+                                    @*<div class="col-12 col-lg-4 text-center">
                                         @if (Np.Picture != null)
                                         {
                                             var base64 = Convert.ToBase64String(Np.Picture);
                                             var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
                                             <img src="@imgsrc" class="card-img-top p-2 rounded" style="width: 100%" />
                                         } 
-                                    </div>
+                                    </div>*@
                                 </div>
                             </div>
                         </div>

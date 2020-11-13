@@ -1,15 +1,14 @@
-﻿@model NativaWeb.Models.NationalPark
+﻿@model NavitaWeb.Models.Marca
 @{ 
-    var title = "Create National Park";
+    var title = "Cadastrar Marca";
 }
-
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
     <div class="row px-2 mx-2 backgroundWhite border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if(Model.Id != 0)
         {
             <input type="hidden" asp-for="Id" />
-            title = "Edit National Park";
+            title = "Editar Marca";
         }
         <div class="col-12 p-3">
             <h2 class="text-primary">@title</h2>
@@ -17,64 +16,40 @@
         <div class="col-8">
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Name"></label>
+                    <label asp-for="Nome"></label>
                 </div>
                 <div class="col-8">
-                    <input type="text" asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="text" asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="State"></label>
-                </div>
-                <div class="col-8">
-                    <input type="text" asp-for="State" class="form-control" />
-                    <span asp-validation-for="State" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group row">
+            @*<div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Picture"></label>
                 </div>
                 <div class="col-8">
                     <input type="file" asp-for="Picture" id="projectImage" name="files" multiple class="form-control" />
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Established"></label>
-                </div>
-                <div class="col-8">
-                    @{ 
-                        var dateEst = "";
-                        if(Model.Id != 0)
-                        {
-                            dateEst = Model.Established.ToShortDateString();
-                        }
-                    }
-                    <input type="text" id="datepicker" value="@dateEst" asp-for="@Model.Established" class="form-control" />
-                </div>
-            </div>
+            </div>*@
             <div class="form-group row">
                 <div class="col-4 offset-4">
                     <button type="submit" class="btn btn-primary form-control" >
                         @if(Model.Id != 0)
                         {
-                            <span>Update</span>
+                            <span>Editar</span>
                         }
                         else
                         {
-                            <span>Create</span>                             
+                            <span>Cadastrar</span>                             
                         }
                     </button>
                 </div>
                 <div class="col-4">
-                    <a href="@Url.Action("Index", "NationalParks")" class="btn btn-success form-control">Back to List</a>
+                    <a href="@Url.Action("Index", "Marcas")" class="btn btn-success form-control">Voltar a Listagem</a>
                 </div>
             </div>
         </div>
-        <div class="col-4 text-right" style="width:250px;">
+        @*<div class="col-4 text-right" style="width:250px;">
             @if (Model.Picture != null)
             {
                 var base64 = Convert.ToBase64String(Model.Picture);
@@ -82,7 +57,7 @@
                 <img src="@imgsrc" style="width: 100%" />
             }
 
-        </div>
+        </div>*@
     </div>
 </form>
 

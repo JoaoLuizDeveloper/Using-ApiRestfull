@@ -1,6 +1,6 @@
 using System;
 
-namespace NativaWeb.Models
+namespace NavitaWeb.Models
 {
     public class ErrorViewModel
     {

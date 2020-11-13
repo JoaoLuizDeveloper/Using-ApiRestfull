@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using NativaWeb.Models;
-using NativaWeb.Repository.IRepository;
+using NavitaWeb.Models;
+using NavitaWeb.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NativaWeb.Repository
+namespace NavitaWeb.Repository
 {
     public class AccountRepository : Repository<User>, IAccountRepository
     {

@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NativaWeb.Repository;
-using NativaWeb.Repository.IRepository;
+using NavitaWeb.Repository;
+using NavitaWeb.Repository.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace NativaWeb
+namespace NavitaWeb
 {
     public class Startup
     {
@@ -37,8 +37,8 @@ namespace NativaWeb
                     options.SlidingExpiration = true;
                 });
             services.AddHttpContextAccessor();
-            services.AddScoped<INationalParkRepository, NationalParkRepository>();
-            services.AddScoped<ITrailRepository, TrailRepository>();
+            services.AddScoped<IMarcaRepository, MarcaRepository>();
+            services.AddScoped<IPatrimonioRepository, PatrimonioRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();

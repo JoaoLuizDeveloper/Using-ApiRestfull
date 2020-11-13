@@ -1,10 +1,10 @@
-﻿using NativaAPI.Models;
+﻿using NavitaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaAPI.Repository.IRepository
+namespace NavitaAPI.Repository.IRepository
 {
     public interface IPatrimonioRepository
     {

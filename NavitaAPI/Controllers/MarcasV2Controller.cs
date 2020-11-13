@@ -3,10 +3,10 @@ using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NativaAPI.Models;
-using NativaAPI.Repository.IRepository;
+using NavitaAPI.Models;
+using NavitaAPI.Repository.IRepository;
 
-namespace NativaAPI.Controllers
+namespace NavitaAPI.Controllers
 {
     [Route("api/v{version:apiversion}/marcasV2")]
     [ApiVersion("2.0")]
@@ -29,7 +29,7 @@ namespace NativaAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(200, Type= typeof(List<Marca>))]
-        public IActionResult GetNationalParks()
+        public IActionResult GetMarcas()
         {
             var obj = _npmarcas.GetMarcas().FirstOrDefault();
 

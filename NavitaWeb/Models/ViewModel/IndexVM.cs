@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaWeb.Models.ViewModel
+namespace NavitaWeb.Models.ViewModel
 {
     public class IndexVM
     {
-        public IEnumerable<NationalPark> NationalParkList { get; set; }
-        public IEnumerable<Trail> TrailList { get; set; }
-
+        public IEnumerable<Marca> MarcaList { get; set; }
+        public IEnumerable<Patrimonio> PatrimonioList { get; set; }
     }
 }

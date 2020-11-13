@@ -1,12 +1,10 @@
-﻿
-
-<div class="p-4" style="border-radius:20px;">
+﻿<div class="p-4" style="border-radius:20px;">
     <div class="row">
         <div class="col-6">
-            <h2 class="text-primary">National Park List</h2>
+            <h2 class="text-primary">Listagem de Marcas</h2>
         </div>
         <div class="col-6 text-right">
-            <a href="@Url.Action("Upsert", "NationalParks")" class="btn btn-primary text-white"><i class="fas fa-plus"></i> &nbsp; Create New National Park</a>
+            <a href="@Url.Action("Upsert", "Marcas")" class="btn btn-primary text-white"><i class="fas fa-plus"></i> &nbsp; Cadastrar Marca</a>
         </div>
     </div>
     <br />
@@ -15,8 +13,7 @@
         <table id="tblData" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr class="table-danger">
-                    <th>Name</th>
-                    <th>State</th>
+                    <th>Nome</th>
                     <th></th>
                 </tr>
             </thead>
@@ -25,5 +22,5 @@
 </div>
 
 @section Scripts{ 
-    <script src="~/js/nationalPark.js"></script>
+    <script src="~/js/marca.js"></script>
 }

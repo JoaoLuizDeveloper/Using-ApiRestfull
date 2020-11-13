@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NativaAPI.Models
+namespace NavitaAPI.Models
 {
     public class User
     {

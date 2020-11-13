@@ -3,10 +3,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NativaAPI.Models;
-using NativaAPI.Repository.IRepository;
+using NavitaAPI.Models;
+using NavitaAPI.Repository.IRepository;
 
-namespace NativaAPI.Controllers
+namespace NavitaAPI.Controllers
 {
     [Route("api/v{version:apiversion}/marcas")]
     [ApiVersion("1.0")]
@@ -23,6 +23,7 @@ namespace NativaAPI.Controllers
             _mapper = mapper;
         }
 
+        #region Pegar Lista de Marcas
         /// <summary>
         /// Get List of Marcas
         /// </summary>
@@ -41,7 +42,9 @@ namespace NativaAPI.Controllers
 
             return Ok(objDTo);
         }
+        #endregion
 
+        #region Pegar Marca Individual
         /// <summary>
         /// Get Individual Marcas
         /// </summary>
@@ -63,13 +66,20 @@ namespace NativaAPI.Controllers
             var objDTO = _mapper.Map<Marca>(obj);
             return Ok(objDTO);
         }
+        #endregion
 
+        #region Criar, Atualizar e Deletar Marca
+        /// <summary>
+        /// CriarMarca
+        /// </summary>
+        /// <param name="marcas">Criação de Marcas</param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(Marca))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateMarca([FromBody] Marca marcas)
+        public IActionResult CriarMarca([FromBody] Marca marcas)
         {
             if (marcas == null)
             {
@@ -142,5 +152,7 @@ namespace NativaAPI.Controllers
 
             return NoContent();
         }
+        #endregion
+
     }
 }

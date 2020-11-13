@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaWeb.Repository.IRepository
+namespace NavitaWeb.Repository.IRepository
 {
     public interface IRepository<T> where T : class 
     {

@@ -17,6 +17,13 @@
             <param name="id">The id of the Marcas</param>
             <returns></returns>
         </member>
+        <member name="M:NavitaAPI.Controllers.MarcasController.CriarMarca(NavitaAPI.Models.Marca)">
+            <summary>
+            CriarMarca
+            </summary>
+            <param name="marcas">Criação de Marcas</param>
+            <returns></returns>
+        </member>
         <member name="M:NavitaAPI.Controllers.MarcasV2Controller.GetMarcas">
             <summary>
             Get List of Marcas

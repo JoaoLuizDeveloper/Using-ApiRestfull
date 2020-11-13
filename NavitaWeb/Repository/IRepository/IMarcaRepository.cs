@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace NavitaWeb.Repository.IRepository
 {
-    public interface IAccountRepository : IRepository<User>
+    public interface IMarcaRepository : IRepository<Marca>
     {
-        Task<User> LoginAsync(string url, User objToCreate);
-        Task<bool> RegisterAsyn(string url, User objToCreate);
     }
 }

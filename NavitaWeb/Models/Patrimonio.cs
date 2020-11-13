@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NavitaAPI.Models
+namespace NavitaWeb.Models
 {
     public class Patrimonio
     {
@@ -13,8 +13,8 @@ namespace NavitaAPI.Models
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
-        public string Descricao { get; set; }       
-        public int NumeroTombo { get; set; }       
+        public string Descricao { get; set; }
+        public int NumeroTombo { get; set; }
 
         public DateTime Created { get; set; }
 

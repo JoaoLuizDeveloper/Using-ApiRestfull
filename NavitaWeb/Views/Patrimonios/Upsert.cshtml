@@ -1,0 +1,73 @@
+﻿@model NavitaWeb.Models.ViewModel.PatrimoniosVM
+@{
+    var title = "Cadastrar Patrimonio";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Patrimonio.Id != 0)
+        {
+            <input type="hidden" asp-for="Patrimonio.Id" />
+            title = "Editar Patrimonio";
+        }
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label>Marcas</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Patrimonio.MarcaId, Model.MarcasList, "- Please select a Park -", new { @class = "form-control" })
+                    <span asp-validation-for="Patrimonio.MarcaId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Patrimonio.Nome"></label>
+                </div>
+                <div class="col-8">
+                    <input type="text" asp-for="Patrimonio.Nome" class="form-control" />
+                    <span asp-validation-for="Patrimonio.Nome" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Patrimonio.NumeroTombo"></label>
+                </div>
+                <div class="col-8">
+                    <input type="text" asp-for="Patrimonio.NumeroTombo" class="form-control" />
+                    <span asp-validation-for="Patrimonio.NumeroTombo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Patrimonio.Descricao"></label>
+                </div>
+                <div class="col-8">
+                    <input type="text" asp-for="Patrimonio.Descricao" class="form-control" />
+                    <span asp-validation-for="Patrimonio.Descricao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-primary form-control">
+                        @if (Model.Patrimonio.Id != 0)
+                        {
+                            <span>Atualizar</span>
+                        }
+                        else
+                        {
+                            <span>Cadastrar</span>
+                        }
+                    </button>
+                </div>
+                <div class="col-4">
+                    <a href="@Url.Action("Index", "Patrimonios")" class="btn btn-success form-control">Voltar a Listagem</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

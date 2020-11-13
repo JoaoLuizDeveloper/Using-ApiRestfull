@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NativaAPI.Models;
+using NavitaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaAPI.Data
+namespace NavitaAPI.Data
 {
     public class ApplicationDbContext : DbContext
     {

@@ -1,4 +1,4 @@
-﻿@model NativaWeb.Models.User
+﻿@model NavitaWeb.Models.User
 @{
     ViewData["Title"] = "Register";
 }
@@ -7,6 +7,7 @@
 
 <form method="post">
     <input asp-for="UserName" type="text" placeholder="User name ...." />
+    <input asp-for="Email" type="text" placeholder="Email ...." />
     <input asp-for="Password" type="text" placeholder="Password..." />
     <input type="submit" value="Register"/>
 </form>

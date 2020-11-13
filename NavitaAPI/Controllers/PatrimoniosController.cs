@@ -3,13 +3,13 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NativaAPI.Models;
-using NativaAPI.Repository.IRepository;
+using NavitaAPI.Models;
+using NavitaAPI.Models.DTOs;
+using NavitaAPI.Repository.IRepository;
 
-namespace NativaAPI.Controllers
+namespace NavitaAPI.Controllers
 {
-    //[Route("api/Patrimonios")]
-    [Route("api/v{version:apiversion}/trails")]
+    [Route("api/v{version:apiversion}/patrimonios")]
     [ApiController]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class PatrimoniosController : ControllerBase
@@ -23,6 +23,7 @@ namespace NativaAPI.Controllers
             _mapper = mapper;
         }
 
+        #region Pegar Lista de Patrimonios
         /// <summary>
         /// Get List of Patrimonios
         /// </summary>
@@ -41,7 +42,9 @@ namespace NativaAPI.Controllers
 
             return Ok(objDTo);
         }
+        #endregion
 
+        #region Pegar Patrimonio Individual
         /// <summary>
         /// Get Individual Patrimonio
         /// </summary>
@@ -64,6 +67,9 @@ namespace NativaAPI.Controllers
             return Ok(objDTO);
         }
 
+        #endregion
+
+        #region Pegar Patrimonio dentro de Marcas
         /// <summary>
         /// Get Individual Patrimonio
         /// </summary>
@@ -89,13 +95,15 @@ namespace NativaAPI.Controllers
             
             return Ok(objDto);
         }
+        #endregion
 
+        #region Criar, Atualizar e Deletar patrimonio
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(Patrimonio))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreatePatrimonio([FromBody] Patrimonio patrimonio)
+        public IActionResult CreatePatrimonio([FromBody] PatrimonioCreateDto patrimonio)
         {
             if (patrimonio == null)
             {
@@ -121,23 +129,23 @@ namespace NativaAPI.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtRoute("GetPatrimonio", new { id= patrimoniosObj.Id }, patrimoniosObj);
+            return CreatedAtRoute("GetPatrimonio", new { version = HttpContext.GetRequestedApiVersion().ToString(), id = patrimoniosObj.Id }, patrimoniosObj);
         }
 
         [HttpPatch("{id:int}", Name = "UpdatePatrimonio")]
         [ProducesResponseType(204)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult UpdatePatrimonio(int id, [FromBody] Patrimonio patrimoniosDto)
+        public IActionResult UpdatePatrimonio(int id, [FromBody] PatrimonioUpdateDto patrimoniosDto)
         {
             if (patrimoniosDto == null || id != patrimoniosDto.Id)
             {
                 return BadRequest(ModelState);
             }
 
-            var trailsObj = _mapper.Map<Patrimonio>(patrimoniosDto);
+            var patrimoniosObj = _mapper.Map<Patrimonio>(patrimoniosDto);
 
-            if (!_patrepo.UpdatePatrimonio(trailsObj))
+            if (!_patrepo.UpdatePatrimonio(patrimoniosObj))
             {
                 ModelState.AddModelError("", $"Algo errado ao atualizar {patrimoniosDto.Nome}");
                 return StatusCode(500, ModelState);
@@ -168,5 +176,7 @@ namespace NativaAPI.Controllers
 
             return NoContent();
         }
+
+        #endregion
     }
 }

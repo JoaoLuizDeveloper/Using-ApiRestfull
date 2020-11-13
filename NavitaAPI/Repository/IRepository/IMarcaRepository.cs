@@ -1,10 +1,10 @@
-﻿using NativaAPI.Models;
+﻿using NavitaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NativaAPI.Repository.IRepository
+namespace NavitaAPI.Repository.IRepository
 {
     public interface IMarcaRepository
     {
@@ -12,9 +12,9 @@ namespace NativaAPI.Repository.IRepository
         Marca GetMarca(int marcasId);
         bool MarcaExists(string name);
         bool MarcaExists(int id);
-        bool CreateMarca(Marca nationalPark);
-        bool UpdateMarca(Marca nationalPark);
-        bool DeleteMarca(Marca nationalPark);
+        bool CreateMarca(Marca marca);
+        bool UpdateMarca(Marca marca);
+        bool DeleteMarca(Marca marca);
         bool Save();
     }
 }
