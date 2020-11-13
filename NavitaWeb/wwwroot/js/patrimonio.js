@@ -73,7 +73,20 @@ function loadDataTable() {
                             `;
                 }, "width": "30%"
             }
-        ]
+        ],
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ entradas",
+            "emptyTable": "Sem Dados encotrados.",
+            "zeroRecords": "Sem Dados encontrados",
+            "info": "Mostrando Pagina _PAGE_ de _PAGES_",
+            "search": "Procurar",
+            "paginate": {
+                "previous": "Pagina Anterior",
+                "next": "Proxima Pagina",
+                "first": "Primeira Pagina"
+            }
+        },
+        "width": "100%"
     });
 }
 

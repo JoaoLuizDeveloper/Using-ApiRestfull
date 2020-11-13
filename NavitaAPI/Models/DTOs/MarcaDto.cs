@@ -12,6 +12,7 @@ namespace NavitaAPI.Models.DTOs
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
+
         public DateTime Created { get; set; }
     }
 }

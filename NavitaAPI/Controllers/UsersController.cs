@@ -31,7 +31,7 @@ namespace NavitaAPI.Controllers
 
             if(user == null)
             {
-                return BadRequest(new { message = "UserName or password is incorrect" });
+                return BadRequest(new { message = "O Email ou senha esta incorreto" });
             }
 
             return Ok(user);
@@ -45,14 +45,14 @@ namespace NavitaAPI.Controllers
 
             if (!ifUserUnique)
             {
-                return BadRequest(new { message = "UserName already exist" });
+                return BadRequest(new { message = "Usuario já existe" });
             }
 
             var user = _userRepo.Register(model.UserName, model.Email, model.Password);
 
             if(user == null)
             {
-                return BadRequest(new { message = "Error while registering" });
+                return BadRequest(new { message = "Erro ao registrar" });
             }
 
             return Ok(user);
