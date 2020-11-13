@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -110,7 +111,7 @@ namespace NavitaAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            if(_patrepo.PatrimonioExists(patrimonio.Nome))
+            if (_patrepo.PatrimonioExists(patrimonio.Nome))
             {
                 ModelState.AddModelError("", "Patrimonio Exist");
                 return StatusCode(404, ModelState);
@@ -122,6 +123,8 @@ namespace NavitaAPI.Controllers
             }
 
             var patrimoniosObj = _mapper.Map<Patrimonio>(patrimonio);
+
+            patrimoniosObj.NumeroTombo = new Random().Next();
 
             if (!_patrepo.CreatePatrimonio(patrimoniosObj))
             {

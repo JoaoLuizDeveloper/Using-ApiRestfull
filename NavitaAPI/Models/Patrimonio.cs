@@ -14,7 +14,7 @@ namespace NavitaAPI.Models
         [Required]
         public string Nome { get; set; }
         public string Descricao { get; set; }       
-        public double NumeroTombo { get; set; }       
+        public int NumeroTombo { get; set; }       
 
         public DateTime Created { get; set; }
 

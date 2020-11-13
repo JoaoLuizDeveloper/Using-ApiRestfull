@@ -9,6 +9,8 @@
         @if (Model.Patrimonio.Id != 0)
         {
             <input type="hidden" asp-for="Patrimonio.Id" />
+            <input type="hidden" asp-for="Patrimonio.Created" />
+            <input type="hidden" asp-for="Patrimonio.NumeroTombo" />
             title = "Editar Patrimonio";
         }
         <div class="col-12 p-3">
@@ -20,7 +22,7 @@
                     <label>Marcas</label>
                 </div>
                 <div class="col-8">
-                    @Html.DropDownListFor(m => m.Patrimonio.MarcaId, Model.MarcasList, "- Please select a Park -", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Patrimonio.MarcaId, Model.MarcasList, "- Selecione a Marca -", new { @class = "form-control" })
                     <span asp-validation-for="Patrimonio.MarcaId" class="text-danger"></span>
                 </div>
             </div>
@@ -33,15 +35,7 @@
                     <span asp-validation-for="Patrimonio.Nome" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Patrimonio.NumeroTombo"></label>
-                </div>
-                <div class="col-8">
-                    <input type="text" asp-for="Patrimonio.NumeroTombo" class="form-control" />
-                    <span asp-validation-for="Patrimonio.NumeroTombo" class="text-danger"></span>
-                </div>
-            </div>
+
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Patrimonio.Descricao"></label>

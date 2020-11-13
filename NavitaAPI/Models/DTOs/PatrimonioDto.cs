@@ -13,7 +13,6 @@ namespace NavitaAPI.Models.DTOs
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
-        public double NumeroTombo { get; set; }
         public string Descricao { get; set; }
 
         [Required]

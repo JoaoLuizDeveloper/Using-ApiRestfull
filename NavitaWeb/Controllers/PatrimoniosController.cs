@@ -66,6 +66,8 @@ namespace NavitaWeb.Controllers
             {
                 if(obj.Patrimonio.Id == 0)
                 {
+                    obj.Patrimonio.Created = DateTime.Now;
+                    obj.Patrimonio.NumeroTombo = new Random().Next();
                     await _npPatrimonio.CreateAsync(SD.PatrimonioAPIPath, obj.Patrimonio, HttpContext.Session.GetString("JWToken"));
                 }
                 else
