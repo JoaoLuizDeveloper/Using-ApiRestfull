@@ -37,7 +37,7 @@ namespace NavitaAPI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // Use para adicionar serviços para o container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
@@ -80,53 +80,9 @@ namespace NavitaAPI
                         ValidateAudience = false,
                     };
                 });
-
-            //services.AddSwaggerGen(options =>
-            //{
-            //    options.SwaggerDoc("NavitaOpenApiSpec",
-            //        new Microsoft.OpenApi.Models.OpenApiInfo()
-            //        {
-            //            Title = "NavitaAPI",
-            //            Version = "1",
-            //            Description = "Building Api Project",
-            //            Contact = new Microsoft.OpenApi.Models.OpenApiContact()
-            //            {
-            //                Email = "Joaoluizdeveloper@gmail.com",
-            //                Name = "JuninhoDRZ",
-            //                Url = new Uri("https://www.linkedin.com/in/joaoluizdeveloper")
-            //            },
-            //            License = new Microsoft.OpenApi.Models.OpenApiLicense()
-            //            {
-            //                Name = "MIT License",
-            //                Url = new Uri("https://en.wikipedia.org/wiki/MIT_License"),
-            //            }
-            //        });
-
-            //    options.SwaggerDoc("NavitaOpenApiSpecTrails",
-            //        new Microsoft.OpenApi.Models.OpenApiInfo()
-            //        {
-            //            Title = "NavitaAPI (Trail)",
-            //            Version = "1",
-            //            Description = "Building Api Project Trail",
-            //            Contact = new Microsoft.OpenApi.Models.OpenApiContact()
-            //            {
-            //                Email = "Joaoluizdeveloper@gmail.com",
-            //                Name = "JuninhoDRZ",
-            //                Url = new Uri("https://www.linkedin.com/in/joaoluizdeveloper")
-            //            },
-            //            License = new Microsoft.OpenApi.Models.OpenApiLicense()
-            //            {
-            //                Name = "MIT License",
-            //                Url = new Uri("https://en.wikipedia.org/wiki/MIT_License"),
-            //            }
-            //        });
-            //    var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            //    var xmlCommentFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
-            //    options.IncludeXmlComments(xmlCommentFullPath);
-            //});            
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Usar para configurar o Http request.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
@@ -144,12 +100,7 @@ namespace NavitaAPI
                 }
                 options.RoutePrefix = "";
             });
-            //app.UseSwaggerUI(options =>
-            //{
-            //    options.SwaggerEndpoint("/swagger/NavitaOpenApiSpec/swagger.json", "Navita API");
-            //    //options.SwaggerEndpoint("/swagger/NavitaOpenApiSpecTrails/swagger.json", "Navita API Trails");
-            //    options.RoutePrefix = "";
-            //});
+            
             app.UseRouting();
 
             app.UseCors(x =>

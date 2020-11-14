@@ -51,9 +51,9 @@ namespace NavitaAPI.Repository
             return user;
         }
 
-        public bool isUniqueUser(string username)
+        public bool isUniqueUser(string email)
         {
-            var user = _db.Users.SingleOrDefault(x => x.UserName == username);
+            var user = _db.Users.SingleOrDefault(x => x.Email == email);
 
             //return true if user is unique
             if (user == null)

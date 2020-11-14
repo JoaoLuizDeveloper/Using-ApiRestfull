@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NavitaNumIrmao
 {
-    class Program
+    class NumeroFamilia
     {
         public static void Main(string[] args)
         {

@@ -46,7 +46,7 @@ namespace NavitaAPI.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] AuthenticationModel model)
         {
-            bool ifUserUnique = _userRepo.isUniqueUser(model.UserName);
+            bool ifUserUnique = _userRepo.isUniqueUser(model.Email);
 
             if (!ifUserUnique)
             {
