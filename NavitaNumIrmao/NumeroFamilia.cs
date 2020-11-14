@@ -12,7 +12,7 @@ namespace NavitaNumIrmao
             //Sendo assim ele vai cair automaticamente na regra de ser maior do que 100.000.000
             try
             {
-                Console.WriteLine("Digite um Numero não negativo e menor que 100.000.000 e descubra o menor numero de sua Familia!");
+                Console.WriteLine("Digite um Numero não negativo e menor que 100.000.000 e descubra o maior numero de sua Familia!");
                 int Num = Convert.ToInt32(Console.ReadLine());
 
                 //Em caso de numero negativo informa ao usuario que o numero deve ser positivo.

@@ -78,11 +78,6 @@ namespace NavitaWeb.Controllers
                     }
                     obj.Picture = p1;
                 }
-                else
-                {
-                    var objFromDb = await _npRepo.GetAsync(SD.MarcaAPIPath, obj.Id, HttpContext.Session.GetString("JWToken"));
-                    obj.Picture = objFromDb.Picture;
-                }
 
                 if (obj.Id == 0)
                 {
