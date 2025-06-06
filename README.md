@@ -13,8 +13,6 @@
 
 <br />
 <br />
-<br />
-<br />
 
 Navita Project
 A personal project by João Luiz developed for Navita, demonstrating proficiency in building RESTful APIs, web applications, and console applications using .NET technologies.
@@ -56,10 +54,8 @@ CSS
 🚀 Getting Started
 Clone the repository:
 
-bash
-Copiar
-Editar
 git clone https://github.com/JoaoLuizDeveloper/Using-ApiRestfull.git
+<br />
 cd Using-ApiRestfull
 Set up the database:
 
